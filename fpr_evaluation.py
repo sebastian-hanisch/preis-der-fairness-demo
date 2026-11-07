@@ -219,7 +219,7 @@ def verdict_p(rows: list[dict]) -> tuple[str, str]:
         sat = f" Der größte Gewinn ({pct(top_gain)}) ist ab p = {p_label(rows[i_sat]['p'])} erreicht."
     if i_top < len(rows) - 1 and prices[-1] < prices[i_top] - C.TOL:
         return "warning", (f"Der Preis steigt bis p = {p_label(rows[i_top]['p'])} auf {pct(prices[i_top])} und **fällt bei p = ∞ auf {pct(prices[-1])}**: "
-                           f"das Maximum mit der Regel „dann Summe“ ist nicht der Grenzwert der p-Optima.{sat}")
+                           f"die Regel „dann Summe“ wählt unter den Plänen mit dem kleinsten Maximum die billigste Summe, während die p-Optima sich dem Leximax-Plan nähern (theoretisch, hier nicht gemessen).{sat}")
     return "info", f"Der Preis steigt mit p höchstens auf {pct(max(prices))} (bei p = ∞: {pct(prices[-1])}).{sat}"
 
 

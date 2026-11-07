@@ -220,8 +220,8 @@ st.markdown(
 | Annahme | Was passiert, wenn sie verletzt ist | Wer setzt an |
 |---|---|---|
 | **Die Belastungen sind bekannt und gelten je Paar unabhängig** | Wechselwirkungen oder Schätzfehler machen aus dem „Optimum“ eine Näherung; Preis und Gewinn sind dann selbst unsicher | Optimierung unter Unsicherheit |
-| **„Preis“ heißt hier Mehrkosten in Prozent** | Der Preis der Fairness bei Bertsimas, Farias und Trichakis (2011) misst Nutzen, nicht Kosten, und nimmt eine konvexe Nutzenmenge an; die Zuordnung ist diskret, ihre Schranken gelten hier nicht, und Mehrkosten haben keine Obergrenze 1 | Literatur; Zufallspläne (Erwartungsbelastung) wären konvex |
-| **Die Gleichstandsregel ist gesetzt** | Ohne sie schwankt der Preis desselben „fairen“ Plans um ein Vielfaches; Toleranz und Gleitkomma gehören zu Stück 4 und 5 | Stück 4 (Lexikographisch), Stück 5 (Gleichstände) |
+| **„Preis“ heißt hier Mehrkosten in Prozent** | Der Preis der Fairness bei Bertsimas, Farias und Trichakis (2011) misst Nutzen, nicht Kosten, und nimmt eine konvexe Nutzenmenge an; die Zuordnung ist diskret, ihre Schranken sind hier nicht anwendbar, und Mehrkosten haben keine Obergrenze 1 | Literatur; Zufallspläne (Erwartungsbelastung) wären konvex |
+| **Die Gleichstandsregel ist gesetzt** | Ohne sie kann der Preis desselben „fairen“ Plans um ein Vielfaches höher liegen (in drei der vier Familien gemessen); Toleranz und Gleitkomma gehören zu Stück 4 und 5 | Stück 4 (Lexikographisch), Stück 5 (Gleichstände) |
 | **Fair heißt: das Maximum der Belastung senken** | Andere Fairnessbegriffe (proportional, nach Bedarf, Neid) wählen andere Pläne; die Demo zeigt nur diese Auslegung | Wertung und Wahl (Gemeinsam entscheiden) |
 | **Leximax nur bis n = 8** | Darüber gibt es kein Leximax, nur die p-Familie als Annäherung; die Bänder zu Leximax stehen für n = 6 bis 8 | – |
 | **Vier synthetische Familien** | Wie groß der Preis ist, hängt an der Familie; echte Belastungen können sich anders verhalten | – |

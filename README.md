@@ -7,7 +7,7 @@ Stück 2 der Linie **Zielfunktionsdesign** („Das Ziel ist das Modell“) in de
 
 ## Warum dieses Problem
 
-„Fair“ klingt nach einer Eigenschaft, ist aber ein Ziel, und ein Ziel hat einen Preis. Die Demo fragt: **Was kostet ein fairerer Plan an Summe, und was bringt er am Maximum?** Sie beantwortet es für vier faire Pläne und zeigt, dass der Preis weniger an der Fairness hängt als an einer Kleinigkeit: der **Regel für Gleichstände** beim Maximum.
+„Fair“ klingt nach einer Eigenschaft, ist aber ein Ziel, und ein Ziel hat einen Preis. Die Demo fragt: **Was kostet ein fairerer Plan an Summe, und was bringt er am Maximum?** Sie beantwortet es für vier faire Pläne und zeigt, dass bei gleichem Maximum der Preis stark davon abhängt, wie unter gleich guten Plänen gewählt wird (der **Regel für Gleichstände**): in diesen Instanzfamilien oft um ein Vielfaches.
 
 ## Modell
 
@@ -18,7 +18,7 @@ Gegeben Belastungen `c[i][j]` (Zeile Person, Spalte Aufgabe). Ein Plan ist eine 
 
 Faire Pläne: **Quadratsumme** (`Σ b_i²`), **Maximum, dann Summe** (kleinstes Maximum, unter allen Plänen damit die kleinste Summe), **Maximum mit zufälligem Gleichstand** (derselbe Engpass, aber unter den gleich guten Plänen gewinnt der mit der kleinsten Summe reeller Zufallszusatzkosten; fester Seed, damit reproduzierbar) und **Leximax** (den absteigend sortierten Belastungsvektor lexikographisch minimieren; aufgezählt nur bis n = 8). Dazu die **p-Familie** `Σ b_i^p` für p = 1 bis ∞. Die **untere Schranke** des Maximums ist `max_i min_j c[i][j]`: die zäheste Person trägt mindestens ihre billigste Aufgabe. Formeln stehen im 📐-Expander der App.
 
-**Preis ist hier nicht der Preis der Fairness von Bertsimas, Farias und Trichakis (2011).** Deren Maß gilt für Nutzen (Maximierung), liegt zwischen 0 und 1 und hat Schranken, die nur von der Spielerzahl abhängen, für **konvexe** Nutzenmengen. Die Zuordnung ist diskret, die Schranken gelten hier nicht; die Demo misst Mehrkosten und nennt sie „Preis“ nur in Anlehnung an die Arbeit.
+**Preis ist hier nicht der Preis der Fairness von Bertsimas, Farias und Trichakis (2011).** Deren Maß gilt für Nutzen (Maximierung), liegt zwischen 0 und 1 und hat Schranken, die nur von der Spielerzahl abhängen, für **konvexe** Nutzenmengen (bei gleichen maximalen Nutzen der Spieler). Die Zuordnung ist diskret, die Schranken sind hier nicht anwendbar; die Demo misst Mehrkosten und nennt sie „Preis“ nur in Anlehnung an die Arbeit.
 
 ## Methodik
 
@@ -33,17 +33,17 @@ Alle Zahlen stammen aus den Auswertungsfunktionen der App und sind in `tests/tes
 | Handbeispiel (n = 4, ganze Zahlen, Seed 358; 24 Pläne) | Quadratsumme: Preis **7,1 %**, Gewinn **14,3 %**; Maximum, dann Summe: Preis **14,3 %**, Gewinn **28,6 %** (Summe 16 statt 14, Maximum 5 statt 7); das Maximum 5 ist die untere Schranke, Leximax ist derselbe Plan |
 | Preis von „Maximum, dann Summe“ (Median) | gleichverteilt **0,4 / 2,3 / 3,0 / 1,9 / 0,6 %**, Personeneffekt **4,2 / 2,3 / 1,4 / 0,9 / 0,6 %**, schwerer Schwanz **0,8 / 1,9 / 0,9 / 1,1 / 0,9 %**, ganze Zahlen **0,0 / 0,0 / 0,0 / 0,0 / 0,0 %**: meist klein, **fällt aber nicht in jeder Familie mit n** |
 | Größter Preis unter den 20 Instanzen („Maximum, dann Summe“) | gleichverteilt **17,0 / 25,6 / 14,2 / 8,6 / 5,0 %**, schwerer Schwanz **37,1 / 6,9 / 4,2 / 3,1 / 2,9 %**: Spitzen sind groß |
-| Preis desselben Engpasses mit zufälligem Gleichstand (Median) | gleichverteilt **12,5 / 39,6 / 54,1 / 60,2 / 90,9 %**, Personeneffekt **16,1 / 21,0 / 23,9 / 22,9 / 22,2 %**, schwerer Schwanz **14,1 / 21,1 / 31,4 / 31,7 / 32,6 %**; größter Einzelwert 218,7 % (gleichverteilt, n = 50) |
+| Preis desselben Engpasses mit zufälligem Gleichstand (Median) | gleichverteilt **12,5 / 39,6 / 54,1 / 60,2 / 90,9 %**, Personeneffekt **16,1 / 21,0 / 23,9 / 22,9 / 22,2 %**, schwerer Schwanz **14,1 / 21,1 / 31,4 / 31,7 / 32,6 %**; größter Instanz-Median 218,7 % (gleichverteilt, n = 50; größter Einzellauf 260,2 %) |
 | Instanzen mit Preis über 5 % (gleichverteilt) | mit zufälligem Gleichstand **15 / 19 / 20 / 20 / 20** von 20, mit der Regel „dann Summe“ **8 / 7 / 4 / 3 / 1** von 20 |
-| Gewinn am Maximum (Median, „Maximum, dann Summe“) | gleichverteilt **2,5 / 12,4 / 16,3 / 21,0 / 9,1 %**, Personeneffekt **12,9 / 11,2 / 19,1 / 20,9 / 24,3 %**, schwerer Schwanz **0,5 / 8,5 / 9,3 / 16,6 / 15,0 %**; ganze Zahlen: Gewinn null in **13 / 16 / 20 / 20 / 20** von 20 (kein Konflikt) |
+| Gewinn am Maximum (Median, „Maximum, dann Summe“) | gleichverteilt **2,5 / 12,4 / 16,3 / 21,0 / 9,1 %**, Personeneffekt **12,9 / 11,2 / 19,1 / 20,9 / 24,3 %**, schwerer Schwanz **0,5 / 8,5 / 9,3 / 16,6 / 15,0 %**; ganze Zahlen: Gewinn gegen den von der Ungarischen Methode gewählten Summen-Optimalplan null in **13 / 16 / 20 / 20 / 20** von 20 (gegen den Summen-Optimalplan mit kleinstem Maximum: 17 / 20 / 20 / 20 / 20; die Referenz ist bei Gleichständen nicht eindeutig) |
 | Obergrenze des Gewinns: untere Schranke (zäheste Person) | der Engpassplan erreicht sie in (n = 10 / 50 / 200) gleichverteilt **8 / 6 / 9**, Personeneffekt **17 / 16 / 15**, schwerer Schwanz **9 / 12 / 7**, ganze Zahlen **14 / 20 / 20** von 20; darunter gewinnt kein Plan |
-| „Maximum, dann Summe“ dominiert das Quadrat (Preis und Gewinn mindestens gleich gut, in einem besser; n = 10 / 50 / 200) | gleichverteilt **1 / 7 / 18**, Personeneffekt **4 / 12 / 20**, schwerer Schwanz **2 / 10 / 4**, ganze Zahlen **0 / 0 / 0** von 20; das **Quadrat dominiert in 0 von 240** Instanzen |
+| „Maximum, dann Summe“ dominiert das Quadrat (Preis und Gewinn mindestens gleich gut, in einem besser; n = 10 / 50 / 200) | gleichverteilt **1 / 7 / 18**, Personeneffekt **4 / 12 / 20**, schwerer Schwanz **2 / 10 / 4**, ganze Zahlen **0 / 0 / 0** von 20. Das Quadrat kann „Maximum, dann Summe“ nicht dominieren, das folgt aus der Definition („Maximum, dann Summe“ hat unter allen Plänen das kleinste Maximum und unter diesen die kleinste Summe); die Zählung ergibt entsprechend **Quadrat dominiert in 0 von 240** Instanzen |
 | Quadrat kann das Maximum vergrößern | gleichverteilt, n = 20: der kleinste Gewinn des Quadrats unter den 20 Instanzen ist **−4,1 %** (Preset „Quadrat vergrößert das Maximum“) |
 | Leximax (aufgezählt, n = 6 / 7 / 8; Preis, Median) | gleichverteilt **0,0 / 0,0 / 6,7 %**, Personeneffekt **4,0 / 5,5 / 5,7 %**, schwerer Schwanz **1,3 / 0,6 / 1,0 %**; Preis über 5 % bei Personeneffekt in **9 / 10 / 12** von 20 |
 | Preset „Gleichstand kostet viel“ (n = 50, gleichverteilt, Seed 26) | zufälliger Gleichstand **142,9 %**, „dann kleinste Summe“ **1,2 %**; Gewinn beider **23,5 %** |
 | Preset „Teurer Gewinn“ (n = 8, schwerer Schwanz, Seed 110) | Preis **28,9 %**, Gewinn **14,4 %** |
 | Preset „Leximax zahlt mehr“ (n = 8, Personeneffekt, Seed 44) | Leximax **15,6 %** Preis, „Maximum, dann Summe“ **5,9 %**, beide Gewinn **6,1 %**; die Optimalmenge beim Maximum hat **1356** Pläne |
-| Preset „Viele Personen“ (n = 100, Personeneffekt, Seed 3), p = 1,5 / 2 / 3 / 5 / 10 / 20 / ∞ | Preis **0,8 / 1,2 / 1,9 / 2,5 / 4,3 / 5,0 / 0,8 %**: der Preis **fällt bei ∞** (das Maximum mit der Regel „dann Summe“ ist nicht der Grenzwert der p-Optima); Gewinn **8,0 / 10,1 / 10,1 / 16,5 / 17,8 / 18,6 / 18,6 %** |
+| Preset „Viele Personen“ (n = 100, Personeneffekt, Seed 3), p = 1,5 / 2 / 3 / 5 / 10 / 20 / ∞ | Preis **0,8 / 1,2 / 1,9 / 2,5 / 4,3 / 5,0 / 0,8 %**: der Preis **fällt bei ∞ auf 0,8 %**: die Regel „dann Summe“ wählt unter den Plänen mit dem kleinsten Maximum die billigste Summe, während die p-Optima sich dem Leximax-Plan nähern (theoretisch, hier nicht gemessen); Gewinn **8,0 / 10,1 / 10,1 / 16,5 / 17,8 / 18,6 / 18,6 %** |
 | Preset „Kein Konflikt“ (n = 50, ganze Zahlen, Seed 0) | Preis und Gewinn von „Maximum, dann Summe“ null; zufälliger Gleichstand dennoch **35,3 %** |
 
 **Korrektur der Planungshypothese:** Vor der Messung stand die Vermutung „der Preis ist klein und fällt mit n“. Die Messung stützt nur den ersten Teil; mit n fällt er bei Personeneffekt, in den anderen Familien nicht eindeutig (die Demo behauptet keinen Trend).
@@ -54,7 +54,7 @@ Alle Zahlen stammen aus den Auswertungsfunktionen der App und sind in `tests/tes
 - **Gleichstandsregel gestaltet das Ergebnis:** Der „zufällige“ Gleichstand ist ein Rechenmodell der Willkür, kein gleichverteiltes Ziehen aus der Optimalmenge (Zufallszusatzkosten).
 - **Leximax nur bis n = 8:** Es wird aufgezählt; für größere n bräuchte es ein sequenzielles Verfahren, das hier fehlt.
 - **Fair heißt hier: das Maximum senken.** Andere Fairnessbegriffe (proportional, nach Bedarf, Neidfreiheit) wählen andere Pläne.
-- **Keine Schranke aus der Literatur:** Die Sätze von Bertsimas, Farias und Trichakis gelten für konvexe Nutzenmengen und gelten für die diskrete Zuordnung nicht; die Demo übernimmt keine Zahl daraus.
+- **Keine Schranke aus der Literatur:** Die Sätze von Bertsimas, Farias und Trichakis gelten für konvexe Nutzenmengen und sind für die diskrete Zuordnung nicht anwendbar; die Demo übernimmt keine Zahl daraus.
 - **Spannen, keine Trends:** Je 20 Instanzen; Median und Spanne zeigen, was in diesen Instanzen geschieht, nicht was in anderen geschieht.
 
 ## Verifikation

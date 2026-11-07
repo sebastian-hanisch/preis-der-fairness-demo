@@ -62,7 +62,7 @@ def test_random_tie_break_price_claims(bands):
     assert _line(_med(bands[(PERSON, "maxrand")], "price")) == "16,1 / 21,0 / 23,9 / 22,9 / 22,2"
     assert _line(_med(bands[(HEAVY, "maxrand")], "price")) == "14,1 / 21,1 / 31,4 / 31,7 / 32,6"
     assert ev.de(max(r["price"][2] for r in bands[(REAL, "maxrand")]) * 100) == "218,7"
-    for text in ("**12,5 / 39,6 / 54,1 / 60,2 / 90,9 %**", "**16,1 / 21,0 / 23,9 / 22,9 / 22,2 %**", "**14,1 / 21,1 / 31,4 / 31,7 / 32,6 %**", "218,7 %"):
+    for text in ("**12,5 / 39,6 / 54,1 / 60,2 / 90,9 %**", "**16,1 / 21,0 / 23,9 / 22,9 / 22,2 %**", "**14,1 / 21,1 / 31,4 / 31,7 / 32,6 %**", "218,7 %", "260,2 %"):
         assert text in README
 
 
