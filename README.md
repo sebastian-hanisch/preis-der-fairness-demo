@@ -3,11 +3,11 @@
 <!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
 **[→ Demo live ausprobieren](https://sebastianhanisch-preis-der-fairness-demo.streamlit.app/)** -->
 
-Stück 2 der Linie **Zielfunktionsdesign** („Das Ziel ist das Modell“) in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“ (Arbeitsname; Name, Bereich und Themenfeld werden erst bei der Einbindung in die Website festgelegt). Es baut auf Stück 1 auf (`zielvergleich-demo`): dieselbe Zuordnung, dieselbe Belastungsmatrix, dieselben drei ersten Instanzfamilien. Das Beispiel: **n Personen übernehmen n Aufgaben**, jede Paarung hat eine Belastung. Der **effiziente** Plan hat die kleinste Summe; ein **fairer** Plan senkt das Maximum und zahlt dafür mit Summe. Die Demo misst beides in Prozent. Alles ist **simuliert**; keine Aussage über echte Personen, Betriebe oder Lasten.
+Stück 2 der Linie **Zielfunktionsdesign** („Das Ziel ist das Modell“). Es baut auf Stück 1 auf (`zielvergleich-demo`): dieselbe Zuordnung, dieselbe Belastungsmatrix, dieselben drei ersten Instanzfamilien. Das Beispiel: **n Personen übernehmen n Aufgaben**, jede Paarung hat eine Belastung. Der **effiziente** Plan hat die kleinste Summe; ein **fairer** Plan senkt das Maximum und zahlt dafür mit Summe. Die Demo misst beides in Prozent. Alles ist **simuliert**; keine Aussage über echte Personen, Betriebe oder Lasten.
 
 ## Warum dieses Problem
 
-„Fair“ klingt nach einer Eigenschaft, ist aber ein Ziel, und ein Ziel hat einen Preis. Die Demo fragt: **Was kostet ein fairerer Plan an Summe, und was bringt er am Maximum?** Sie beantwortet es für vier faire Pläne und zeigt, dass bei gleichem Maximum der Preis stark davon abhängt, wie unter gleich guten Plänen gewählt wird (der **Regel für Gleichstände**): in diesen Instanzfamilien oft um ein Vielfaches.
+„Fair“ klingt nach einer Eigenschaft, ist aber ein Ziel, und ein Ziel hat einen Preis. Die Demo fragt: **Was kostet ein fairerer Plan an Summe, und was bringt er am Maximum?** Sie beantwortet es für vier faire Pläne und zeigt, dass bei gleichem Maximum der Preis stark davon abhängt, wie unter gleich guten Plänen gewählt wird (der **Regel für Gleichstände**): etwa bei gleichverteilten Belastungen mit n = 10 im Median 0,4 % mit der Regel „dann Summe“ gegen 12,5 % mit zufälligem Gleichstand (weitere Paare unter Befunde).
 
 ## Modell
 

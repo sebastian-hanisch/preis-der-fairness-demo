@@ -140,7 +140,8 @@ for key in C.PLAN_KEYS:
 st.markdown("\n".join(rows_md))
 st.caption("Preis: Mehrkosten der Summe gegen den effizienten Plan; Gewinn: Rückgang des Maximums (negativ: das Maximum wächst). "
            + ("" if a.enumerated else f"Leximax wird nur bis n = {C.ENUM_MAX} gerechnet (aufgezählt). ")
-           + "Gleichstand beim Maximum: erst kleinstes Maximum, dann kleinste Summe; „zufällig“ entscheidet der Gleichstands-Seed.")
+           + "Gleichstand beim Maximum: erst kleinstes Maximum, dann kleinste Summe; „zufällig“ entscheidet der Gleichstands-Seed. "
+           + "Bei ganzen Zahlen ist die Referenz nicht eindeutig: Preis und Gewinn hängen davon ab, welcher von mehreren gleich guten Summen-Optimalplänen als Referenz dient.")
 
 st.plotly_chart(build_matrix(a.inst, a.plans), width="stretch", key="matrix_chart")
 st.caption("Belastungsmatrix (Zeile Person, Spalte Aufgabe); Marken: Kreis effizienter Plan, Quadrat Quadratsumme, Raute „Maximum, dann Summe“. Je dunkler die Zelle, desto größer die Belastung.")
@@ -221,8 +222,9 @@ st.markdown(
 |---|---|---|
 | **Die Belastungen sind bekannt und gelten je Paar unabhängig** | Wechselwirkungen oder Schätzfehler machen aus dem „Optimum“ eine Näherung; Preis und Gewinn sind dann selbst unsicher | Optimierung unter Unsicherheit |
 | **„Preis“ heißt hier Mehrkosten in Prozent** | Der Preis der Fairness bei Bertsimas, Farias und Trichakis (2011) misst Nutzen, nicht Kosten, und nimmt eine konvexe Nutzenmenge an; die Zuordnung ist diskret, ihre Schranken sind hier nicht anwendbar, und Mehrkosten haben keine Obergrenze 1 | Literatur; Zufallspläne (Erwartungsbelastung) wären konvex |
-| **Die Gleichstandsregel ist gesetzt** | Ohne sie kann der Preis desselben „fairen“ Plans um ein Vielfaches höher liegen (in drei der vier Familien gemessen); Toleranz und Gleitkomma gehören zu Stück 4 und 5 | Stück 4 (Lexikographisch), Stück 5 (Gleichstände) |
+| **Die Gleichstandsregel ist gesetzt** | Ohne sie liegt der Preis desselben „fairen“ Plans höher: im Median über je 20 Instanzen in drei Familien (gleichverteilt, n = 10: 0,4 % mit „dann Summe“ gegen 12,5 % mit zufälligem Gleichstand), bei ganzen Zahlen nur an einem Beispiel (Preset „Kein Konflikt“); Toleranz und Gleitkomma gehören zu Stück 4 und 5 | Stück 4 (Lexikographisch), Stück 5 (Gleichstände) |
 | **Fair heißt: das Maximum der Belastung senken** | Andere Fairnessbegriffe (proportional, nach Bedarf, Neid) wählen andere Pläne; die Demo zeigt nur diese Auslegung | Wertung und Wahl (Gemeinsam entscheiden) |
+| **Die Referenz ist der Summen-Optimalplan** | Bei ganzen Zahlen gibt es oft mehrere gleich gute Summen-Optimalpläne; Preis und Gewinn hängen davon ab, welcher von ihnen als Referenz dient | – |
 | **Leximax nur bis n = 8** | Darüber gibt es kein Leximax, nur die p-Familie als Annäherung; die Bänder zu Leximax stehen für n = 6 bis 8 | – |
 | **Vier synthetische Familien** | Wie groß der Preis ist, hängt an der Familie; echte Belastungen können sich anders verhalten | – |
 """

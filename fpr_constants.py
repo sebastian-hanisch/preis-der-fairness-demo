@@ -52,7 +52,7 @@ PRESETS = {
 PRESET_HELP = {
     "Handbeispiel (n = 4, ganze Zahlen)": "Vier Personen, vier Aufgaben: der faire Plan kostet Summe und bringt am Maximum.",
     "Kein Konflikt (n = 50, ganze Zahlen)": "Hier wählt „Maximum, dann Summe“ denselben Plan wie die Summe: Fairness kostet nichts und bringt nichts. Nur der zufällige Gleichstand zahlt.",
-    "Gleichstand kostet viel (n = 50)": "Derselbe Engpass, einmal mit zufälligem Gleichstand und einmal mit „dann kleinste Summe“: der Preis unterscheidet sich um ein Vielfaches.",
+    "Gleichstand kostet viel (n = 50)": "Derselbe Engpass, einmal mit zufälligem Gleichstand und einmal mit „dann kleinste Summe“: der Preis unterscheidet sich deutlich (Median gleichverteilt, n = 10: 0,4 gegen 12,5 %).",
     "Teurer Gewinn (schwerer Schwanz, n = 8)": "Ein Fall, in dem der faire Plan rund 29 % mehr Summe kostet.",
     "Leximax zahlt mehr (n = 8, Personeneffekt)": "Leximax (volle Max-Min-Fairness) weicht vom Plan „Maximum, dann Summe“ ab und kostet mehr Summe.",
     "Quadrat vergrößert das Maximum (n = 20)": "Das Quadrat-Optimum hat ein größeres Maximum als das Summen-Optimum.",
