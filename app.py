@@ -80,10 +80,25 @@ st.markdown(
 Der **effiziente** Plan hat die kleinste **Summe**. Ein **fairer** Plan senkt die Belastung der am stärksten Belasteten, das **Maximum**, und zahlt dafür mit Summe.
 Die Demo misst beides in Prozent: den **Preis** (Mehrkosten der Summe) und den **Gewinn** (Rückgang des Maximums), für vier faire Pläne, und zeigt, woran der Preis hängt.
 
+Wer das Thema zuerst ohne Fachbegriffe verstehen will, öffnet „💬 In einfachen Worten“.
+
 Weiter unten: **🔬 Preis und Gewinn der Pläne**, **🔬 Was die Gleichstandsregel kostet**, **🔬 Der p-Regler**, **🔬 Wie groß ist der Preis?**, **🔬 Wie weit reicht der Gewinn?**,
 **🚧 Wo die Annahmen enden** und der Expander **📐 Mathematische Formulierung**.
 """
 )
+
+# erklaerseite:einfach:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/preis-der-fairness-erklaert.json, nicht von Hand ändern)
+with st.expander("💬 In einfachen Worten"):
+    st.markdown(
+        """
+Stellen Sie sich vor, ein Team verteilt Aufgaben auf Personen. Der sparsamste Plan hält die Belastung aller zusammen so klein wie möglich, kann aber eine Person stark belasten. Ein fairerer Plan senkt die Belastung der am stärksten Belasteten und nimmt dafür in Kauf, dass die Belastung aller zusammen wächst. Die Demo misst beides in Prozent: die Mehrbelastung als Preis und die Entlastung der am stärksten Belasteten als Gewinn.
+
+Es kann mehrere Pläne geben, die für die am stärksten belastete Person gleich gut sind. Welchen davon man nimmt, bestimmt den Preis: Entscheidet der Zufall, kann er hoch ausfallen. Wählt man unter den gleich guten Plänen den mit der kleinsten Gesamtbelastung, bleibt er in den Messungen der Demo klein. Alle Belastungen sind erfunden.
+
+[Ausführlich und verständlich erklärt, mit Fachteil](https://sebastianhanisch.net/preis-der-fairness-erklaert.html)
+        """
+    )
+# erklaerseite:einfach:end
 
 with st.expander("So funktioniert die Preis-Gewinn-Rechnung", expanded=True):
     st.markdown(
@@ -233,6 +248,28 @@ st.markdown(
 st.markdown("---")
 
 with st.expander("📐 Mathematische Formulierung"):
+    # erklaerseite:lesehilfe:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/preis-der-fairness-erklaert.json, nicht von Hand ändern)
+    st.markdown(
+        r"""
+**Lesehilfe.** Gegeben sind $n$ Personen, $n$ Aufgaben und für jede Paarung eine Belastung. Gesucht sind Pläne, die jeder Person genau eine Aufgabe geben, und ihr Abstand zum sparsamsten Plan: der Preis (Mehrkosten der Summe) und der Gewinn (Rückgang der höchsten Belastung).
+
+| Symbol | Bedeutung |
+|---|---|
+| $n$ | Zahl der Personen und der Aufgaben |
+| $c_{ij}$ | Belastung, wenn Person $i$ die Aufgabe $j$ übernimmt |
+| $\pi$ | Plan: ordnet jeder Person $i$ eine Aufgabe $\pi(i)$ zu (Permutation) |
+| $b_i$ | Belastung, die Person $i$ im Plan $\pi$ trägt |
+| $S(\pi)$ | Summe aller getragenen Belastungen |
+| $M(\pi)$ | Maximum: die höchste Belastung einer einzelnen Person |
+| $\pi^{\Sigma}$ | sparsamster (effizienter) Plan mit der kleinsten Summe |
+| $\text{Preis}$, $\text{Gewinn}$ | Mehrkosten der Summe bzw. Rückgang des Maximums gegenüber $\pi^{\Sigma}$ |
+| $p$ | Exponent der Zielfunktion $\sum_i b_i^p$ |
+| $t$ | Schwelle: kleinster Wert, bei dem ein Plan existiert, in dem keine Belastung über $t$ liegt |
+
+[Schritt für Schritt erklärt, mit Herleitung und Literatur](https://sebastianhanisch.net/preis-der-fairness-erklaert.html#fachleute)
+        """
+    )
+    # erklaerseite:lesehilfe:end
     st.markdown(
         r"""
 **Problem.** Gegeben $n$ Personen, $n$ Aufgaben und Belastungen $c_{ij} \ge 0$. Ein Plan ist eine Permutation $\pi$; Person $i$ trägt $b_i = c_{i,\pi(i)}$. Der **effiziente Plan** $\pi^{\Sigma}$ minimiert $S(\pi) = \sum_i b_i$; $M(\pi) = \max_i b_i$.
