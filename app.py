@@ -122,7 +122,7 @@ with st.sidebar:
     st.markdown("**Instanz**")
     n = st.slider("Personen und Aufgaben n", *bounds("n_slider"), key="n_slider", help=f"Bis n = {C.ENUM_MAX} werden alle Pläne aufgezählt (und Leximax gerechnet); darüber rechnen exakte Löser.")
     family = st.selectbox("Art der Belastungen", list(range(len(C.FAMILIES))), key="family_select", format_func=lambda i: C.FAMILIES[i],
-                          help="Ganze Zahlen haben viele Gleichstände; „Mit Personeneffekt“: manche Personen sind systematisch stärker belastet; „Schwerer Schwanz“: wenige sehr große Belastungen.")
+                          help="Ganze Zahlen haben viele Gleichstände; „Mit Personeneffekt“: manche Personen sind systematisch stärker belastet; „Heavy Tail“: wenige sehr große Belastungen.")
     seed = st.number_input("Zufalls-Seed der Instanz", *bounds("seed_input"), key="seed_input", step=1)
     st.button("🎲 Neue Instanz generieren", width="stretch", on_click=randomize_seed)
     st.markdown("**Gleichstand**")

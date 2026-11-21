@@ -1,6 +1,6 @@
 """Szenario: n Personen, n Aufgaben, Belastung c[i][j] (Mehraufwand von Person i bei Aufgabe j). Alles simuliert.
 
-Die ersten drei Familien und ihre Erzeugung sind aus Stück 1 der Reihe (zielvergleich-demo) übernommen; neu ist „Schwerer Schwanz“."""
+Die ersten drei Familien und ihre Erzeugung sind aus Stück 1 der Reihe (zielvergleich-demo) übernommen; neu ist „Heavy Tail“."""
 
 from dataclasses import dataclass
 
@@ -25,7 +25,7 @@ def make_instance(n: int, family: int, seed: int) -> Instance:
     """Deterministisch aus (n, Familie, Seed): gleiche Eingabe, gleiche Instanz.
 
     Familie 0: ganze Zahlen 1 bis 9 (viele Gleichstände); 1: gleichverteilt 0 bis 100; 2: Personeneffekt (manche Personen sind
-    systematisch teurer, manche Aufgaben ebenso) plus Rauschen; 3: schwerer Schwanz (log-normal, wenige sehr große Belastungen)."""
+    systematisch teurer, manche Aufgaben ebenso) plus Rauschen; 3: Heavy Tail (log-normal, wenige sehr große Belastungen)."""
     rng = np.random.default_rng(seed)
     key = C.FAMILY_KEYS[family]
     if key == "int":
