@@ -44,6 +44,6 @@ def build_pdf(s: Settings, a: Analysis) -> bytes:
     pdf.ln(3)
     pdf.set_font("Helvetica", "I", 8)
     pdf.multi_cell(0, 4, _s("Preis: Mehrkosten der Summe gegen das Summen-Optimum in Prozent; Gewinn: Rückgang des Maximums in Prozent. "
-                            f"Untere Schranke des Maximums (zäheste Person): {de(a.lower)}. Gleichstand beim Maximum: erst kleinstes Maximum, dann kleinste Summe, "
+                            f"Untere Schranke des Maximums (größtes Zeilenminimum): {de(a.lower)}. Gleichstand beim Maximum: erst kleinstes Maximum, dann kleinste Summe, "
                             "oder zufällig (Seed). Quelle: preis-der-fairness-demo, Sebastian Hanisch."), new_x="LMARGIN", new_y="NEXT")
     return bytes(pdf.output())

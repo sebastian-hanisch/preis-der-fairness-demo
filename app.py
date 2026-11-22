@@ -221,7 +221,7 @@ getattr(st, kind)(text)
 st.markdown("---")
 
 st.subheader("🔬 Wie weit reicht der Gewinn?")
-st.caption("Die zäheste Person, die bei jeder Aufgabe stark belastet ist, legt eine untere Schranke für das Maximum fest: Kein Plan kann darunter liegen.")
+st.caption("Die Person mit dem größten Zeilenminimum, die also bei jeder Aufgabe stark belastet ist, legt eine untere Schranke für das Maximum fest: Kein Plan kann darunter liegen.")
 st.plotly_chart(build_reach(a), width="stretch", key="reach_chart")
 kind, text = verdict_reach(a, _reach(settings.family))
 getattr(st, kind)(text)
@@ -280,7 +280,7 @@ Der Preis ist nie negativ; der Gewinn ist negativ, wenn das Maximum wächst (bei
 
 **Faire Pläne.** Quadratsumme: $\min \sum_i b_i^2$ (allgemein $\min \sum_i b_i^p$, exakt über die Ungarische Methode mit Kosten $c_{ij}^p$). Maximum: kleinste Schwelle $t$, bei der die Kanten mit $c_{ij} \le t$ ein perfektes Matching enthalten; unter allen Plänen mit $M(\pi) = t$ entscheidet entweder die kleinste Summe („dann Summe“) oder die kleinste Summe reeller Zufallszusatzkosten (zufälliger Gleichstand). **Leximax:** der absteigend sortierte Belastungsvektor $b_{(1)} \ge b_{(2)} \ge \dots$ wird lexikographisch minimiert (aufgezählt, $n \le 8$); Pläne mit demselben sortierten Vektor haben dieselbe Summe.
 
-**Untere Schranke.** $M(\pi) \ge \max_i \min_j c_{ij}$ für jeden Plan $\pi$: die zäheste Person trägt mindestens ihre billigste Aufgabe.
+**Untere Schranke.** $M(\pi) \ge \max_i \min_j c_{ij}$ für jeden Plan $\pi$: die Person mit dem größten Zeilenminimum trägt mindestens ihre billigste Aufgabe.
 
 **Literatur.** Bertsimas, Farias, Trichakis (2011), „The Price of Fairness“, Operations Research 59(1): Preis der Fairness als relative Effizienzeinbuße gegen den Plan mit der größten Nutzensumme; Schranken, die nur von der Spielerzahl abhängen, für kompakte und konvexe Nutzenmengen. Diese Demo übernimmt keine Schranke und keine Zahl daraus; alle Zahlen sind Messungen an den Instanzfamilien der Demo. Rechenverfahren: Ungarische Methode (Kuhn, 1955; hier nicht an der Quelle geprüft).
         """
